@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  /* Urban Nest Custom Brand Colors */
+  --color-urban-dark: #622B14;
+  --color-urban-wood: #A47148;
+  --color-urban-sage: #9CA78B;
+  --color-urban-cream: #F2EFE9;
+  --color-urban-surface: #F7F4EF;
+  --color-urban-border: #D8C8B6;
+  --color-urban-muted: #6A5846;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-urban-cream);
+  color: var(--color-urban-dark);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
