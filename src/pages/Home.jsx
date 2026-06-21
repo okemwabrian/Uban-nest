@@ -25,7 +25,7 @@ const Home = () => {
       </section>
 
       {/* 2. VALUE PROPOSITION SECTION */}
-      <section className="py-20 bg-white border-y border-neutral-200">
+      <section className="py-20 bg-urban-surface border-y border-urban-border">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div className="flex flex-col items-center">
             <Truck size={40} strokeWidth={1} className="text-urban-sage mb-4" />
@@ -59,27 +59,27 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Category Card 1 */}
-          <Link to="/shop" className="group relative h-[400px] overflow-hidden bg-neutral-200 shadow-lg">
+          <Link to="/shop" className="group relative h-[400px] overflow-hidden bg-urban-surface shadow-lg rounded-[32px]">
             <img 
               src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=800&auto=format&fit=crop" 
               alt="Living Room" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
-            <div className="absolute bottom-8 left-8 bg-white px-6 py-3 shadow-md">
+            <div className="absolute bottom-8 left-8 bg-urban-cream px-6 py-3 shadow-md rounded-xl">
               <h3 className="text-xl font-bold text-urban-dark">Living Room</h3>
             </div>
           </Link>
 
           {/* Category Card 2 */}
-          <Link to="/shop" className="group relative h-[400px] overflow-hidden bg-neutral-200 shadow-lg">
+          <Link to="/shop" className="group relative h-[400px] overflow-hidden bg-urban-surface shadow-lg rounded-[32px]">
             <img 
               src="https://images.unsplash.com/photo-1505693314120-0d443867891c?q=80&w=800&auto=format&fit=crop" 
               alt="Bedroom" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
-            <div className="absolute bottom-8 left-8 bg-white px-6 py-3 shadow-md">
+            <div className="absolute bottom-8 left-8 bg-urban-cream px-6 py-3 shadow-md rounded-xl">
               <h3 className="text-xl font-bold text-urban-dark">Bedroom</h3>
             </div>
           </Link>

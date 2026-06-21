@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, Search, User } from 'lucide-react';
+import { ShoppingCart, Menu, Search } from 'lucide-react';
+import { useCart } from '../context/CartContext'; // Import cart hook
+import { useUser } from '../context/UserContext'; // Import user hook
 
 const Navbar = () => {
+  const { cartCount } = useCart(); // Get real cart count
+  const { user } = useUser();     // Get real user info
+
   return (
     <nav className="w-full bg-urban-surface border-b border-urban-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
+          
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-bold text-urban-dark tracking-tighter">
               URBAN NEST
@@ -13,15 +19,9 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex space-x-8">
-            <Link to="/" className="text-urban-muted hover:text-urban-dark font-medium transition-colors">
-              Home
-            </Link>
-            <Link to="/shop" className="text-urban-muted hover:text-urban-dark font-medium transition-colors">
-              Shop Collection
-            </Link>
-            <Link to="#" className="text-urban-muted hover:text-urban-dark font-medium transition-colors">
-              Journal
-            </Link>
+            <Link to="/" className="text-urban-muted hover:text-urban-dark font-medium transition-colors">Home</Link>
+            <Link to="/shop" className="text-urban-muted hover:text-urban-dark font-medium transition-colors">Shop Collection</Link>
+            <Link to="#" className="text-urban-muted hover:text-urban-dark font-medium transition-colors">Journal</Link>
           </div>
 
           <div className="flex items-center space-x-6">
@@ -29,15 +29,26 @@ const Navbar = () => {
               <Search size={20} strokeWidth={1.5} />
             </button>
             
-            <button className="hidden sm:block text-urban-muted hover:text-urban-dark transition-colors">
-              <User size={20} strokeWidth={1.5} />
-            </button>
+            {/* Dynamic User Badge */}
+            {user && (
+              <div className="hidden sm:flex items-center gap-2 bg-urban-cream px-3 py-1 rounded-full border border-urban-border">
+                <div className="h-6 w-6 rounded-full bg-urban-dark text-white flex items-center justify-center font-bold text-[10px] uppercase">
+                  {user.username.charAt(0)}
+                </div>
+                <span className="text-sm font-medium text-urban-dark">
+                  {user.username}
+                </span>
+              </div>
+            )}
 
             <Link to="/cart" className="text-urban-muted hover:text-urban-dark relative transition-colors">
               <ShoppingCart size={20} strokeWidth={1.5} />
-              <span className="absolute -top-1.5 -right-2 bg-urban-dark text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
-                0
-              </span>
+              {/* Dynamic Cart Count */}
+              {cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-2 bg-urban-dark text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center shadow-md">
+                  {cartCount}
+                </span>
+              )}
             </Link>
 
             <button className="md:hidden text-urban-muted hover:text-urban-dark transition-colors">
